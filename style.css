@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #2980b9;
+    --bg-color: #fcfcfc;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 0;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    margin-bottom: 25px;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.project-date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 0;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+footer {
+    margin-top: 60px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #eaeaea;
+    color: #888;
+    font-size: 0.9rem;
+}
