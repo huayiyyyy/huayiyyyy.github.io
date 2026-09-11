@@ -1,0 +1,76 @@
+---
+layout: default
+title: Blog
+---
+<div class="blog-page">
+
+  <header class="blog-header">
+    <h1>Blog</h1>
+    <div class="blog-controls">
+      <div class="view-toggle" role="tablist">
+        <button id="view-by-year" class="toggle-btn active" data-view="year">By Year</button>
+        <button id="view-by-tag" class="toggle-btn" data-view="tag">By Tag</button>
+      </div>
+      <input type="text" id="post-search" class="post-search" placeholder="Search posts…">
+    </div>
+  </header>
+
+  <!-- 标签筛选条（两种视图共用） -->
+  {% if site.tags.size > 0 %}
+    <div class="tag-filter-bar" id="tag-filter-bar">
+      <button class="tag-filter-btn active" data-filter="*">All</button>
+      {% assign sorted_tags = site.tags | sort %}
+      {% for tag in sorted_tags %}
+        <button class="tag-filter-btn" data-filter="{{ tag[0] | slugify }}">{{ tag[0] }} <span class="tag-count">{{ tag[1].size }}</span></button>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- ============ 按年份视图 ============ -->
+  <div class="post-groups" id="view-year">
+    {% assign prevyear = '' %}
+    {% for post in site.posts %}
+      {% assign currentyear = post.date | date: '%Y' %}
+      {% if currentyear != prevyear %}
+        {% unless forloop.first %}</ul></section>{% endunless %}
+        <section class="year-group">
+          <h2 class="year-title">{{ currentyear }}</h2>
+          <ul class="post-list">
+      {% endif %}
+            <li class="post-item" data-tags="{% for t in post.tags %}{{ t | slugify }} {% endfor %}">
+              <a class="post-item-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <span class="post-item-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+              {% if post.tags.size > 0 %}
+                <span class="post-item-tags">
+                  {% for tag in post.tags %}<span class="tag-chip small">{{ tag }}</span>{% endfor %}
+                </span>
+              {% endif %}
+            </li>
+      {% assign prevyear = currentyear %}
+    {% endfor %}
+    {% if site.posts.size > 0 %}</ul></section>{% endif %}
+  </div>
+
+  <!-- ============ 按标签视图 ============ -->
+  <div class="post-groups hidden" id="view-tag">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+      <section class="year-group tag-group">
+        <h2 class="year-title"><span class="tag-chip">{{ tag[0] }}</span></h2>
+        <ul class="post-list">
+          {% for post in tag[1] %}
+            <li class="post-item" data-tags="{{ tag[0] | slugify }}">
+              <a class="post-item-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <span class="post-item-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+
+  {% if site.posts.size == 0 %}
+    <p class="empty-note">还没有文章。在 <code>_posts/</code> 目录下新建 <code>YYYY-MM-DD-标题.md</code> 文件即可发布第一篇。</p>
+  {% endif %}
+
+</div>

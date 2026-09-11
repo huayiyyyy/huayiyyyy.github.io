@@ -1,0 +1,16 @@
+# Site settings
+title: Your Name
+description: >-
+  Personal blog — notes, projects and publications.
+# 如果仓库是 username.github.io 形式（用户主页），请把 baseurl 改为 ""
+# 如果仓库是 blog（项目主页，部署到 username.github.io/blog/），保持 "/blog"
+baseurl: "/blog"
+url: ""
+
+markdown: kramdown
+highlighter: rouge
+
+# 排除不需要编译的文件
+exclude:
+  - README.md
+  - .git

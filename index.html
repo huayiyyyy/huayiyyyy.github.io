@@ -1,0 +1,100 @@
+---
+layout: default
+---
+<div class="home">
+
+  <!-- ============ About Me ============ -->
+  <section class="home-section about">
+    <div class="about-text">
+      <h1>Hello, I'm <span class="highlight">Your Name</span> 👋</h1>
+      <p>
+        这里写一段自我介绍：你是谁、目前在做什么（学校 / 专业 / 职业）、
+        你的研究或兴趣方向。两三句话即可，例如：
+      </p>
+      <p>
+        I'm a graduate student interested in machine learning and computer vision.
+        I use this blog to record what I learn and to share my projects and publications.
+      </p>
+      <ul class="about-links">
+        <li><a href="mailto:you@example.com">Email</a></li>
+        <li><a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div class="about-avatar">
+      <!-- 把你的头像放到 assets/img/avatar.jpg 后取消下面的注释 -->
+      <!-- <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="avatar"> -->
+      <div class="avatar-placeholder">😊</div>
+    </div>
+  </section>
+
+  <!-- ============ Recent Posts ============ -->
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Recent Posts</h2>
+      <a class="see-all" href="{{ '/blog.html' | relative_url }}">View all →</a>
+    </div>
+    <ul class="post-list">
+      {% assign recent = site.posts | limit: 5 %}
+      {% for post in recent %}
+        <li class="post-item">
+          <a class="post-item-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="post-item-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          {% if post.tags.size > 0 %}
+            <span class="post-item-tags">
+              {% for tag in post.tags %}<span class="tag-chip small">{{ tag }}</span>{% endfor %}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <!-- ============ Projects ============ -->
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <a class="see-all" href="{{ '/projects.html' | relative_url }}">View all →</a>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Project One</h3>
+        <p>一句话介绍这个项目做了什么、用了什么技术。</p>
+        <div class="card-links"><a href="#" target="_blank" rel="noopener">GitHub</a> · <a href="#">Demo</a></div>
+      </div>
+      <div class="card">
+        <h3>Project Two</h3>
+        <p>一句话介绍这个项目做了什么、用了什么技术。</p>
+        <div class="card-links"><a href="#" target="_blank" rel="noopener">GitHub</a> · <a href="#">Paper</a></div>
+      </div>
+      <div class="card">
+        <h3>Project Three</h3>
+        <p>一句话介绍这个项目做了什么、用了什么技术。</p>
+        <div class="card-links"><a href="#" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Publications ============ -->
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Publications</h2>
+    </div>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-title">Paper Title One</span><br>
+        <span class="pub-authors"><strong>Your Name</strong>, Coauthor A, Coauthor B</span><br>
+        <span class="pub-venue">Conference / Journal Name, 2026</span>
+        <span class="pub-links"> · <a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Cite</a></span>
+      </li>
+      <li>
+        <span class="pub-title">Paper Title Two</span><br>
+        <span class="pub-authors">Coauthor A, <strong>Your Name</strong></span><br>
+        <span class="pub-venue">Conference / Journal Name, 2025</span>
+        <span class="pub-links"> · <a href="#">PDF</a> · <a href="#">Code</a></span>
+      </li>
+    </ul>
+  </section>
+
+</div>
