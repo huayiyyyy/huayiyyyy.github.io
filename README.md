@@ -44,8 +44,8 @@ tags: [标签1, 标签2]
 3. Source 选择 **Deploy from a branch**，分支选 `main`，目录选 `/ (root)`，保存。
 4. 等约 1 分钟，访问 `https://<用户名>.github.io/blog/` 即可。
 
-> 如果仓库名是 `<用户名>.github.io`（用户主页仓库），请把 `_config.yml` 里的
-> `baseurl: "/blog"` 改为 `baseurl: ""`，网址则是 `https://<用户名>.github.io/`。
+> 本仓库是 `<用户名>.github.io`（用户主页仓库），直接部署在根路径。
+> 如果以后改用项目仓库名（如 `blog`），需把 `_config.yml` 的 `baseurl` 改为 `"/blog"`。
 
 ## 本地预览（可选）
 
@@ -57,7 +57,7 @@ bundle exec jekyll serve
 jekyll serve
 ```
 
-访问 http://127.0.0.1:4000/blog/ 预览。不装 Jekyll 也可以——直接 push 到 GitHub 看线上效果。
+访问 http://127.0.0.1:4000/ 预览。不装 Jekyll 也可以——直接 push 到 GitHub 看线上效果。
 
 ## 需要改成你自己内容的地方
 

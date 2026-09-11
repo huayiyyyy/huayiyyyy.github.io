@@ -2,10 +2,10 @@
 title: Your Name
 description: >-
   Personal blog — notes, projects and publications.
-# 如果仓库是 username.github.io 形式（用户主页），请把 baseurl 改为 ""
-# 如果仓库是 blog（项目主页，部署到 username.github.io/blog/），保持 "/blog"
-baseurl: "/blog"
-url: ""
+# 本仓库是 huayiyyyy.github.io（用户主页仓库），部署在根路径，baseurl 保持 ""
+# 如果以后改用项目仓库（如 blog，部署到 username.github.io/blog/），改为 "/blog"
+baseurl: ""
+url: "https://huayiyyyy.github.io"
 
 markdown: kramdown
 highlighter: rouge
